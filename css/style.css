@@ -1,0 +1,150 @@
+:root{
+    --red: hsl(0, 78%, 62%);
+    --cyan: hsl(180, 62%, 55%);
+    --orange: hsl(34, 97%, 64%);
+    --blue: hsl(212, 86%, 64%);
+    --very-dark-blue: hsl(234, 12%, 34%);
+    --grayish-blue: hsl(229, 6%, 66%);
+    --very-light-gray: hsl(0, 0%, 98%);
+}
+
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0 auto;
+    max-width: 1440px;
+    min-width: 350px;
+    min-height: 100vh;
+    padding: 90px;
+
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--very-light-gray);
+    color: var(--grayish-blue);
+
+    font-size: 15px;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    line-height: 1.5;
+}
+h1{ font-size: 2.4em; font-weight: 600; color: var(--very-dark-blue); }
+h2{ font-size: 1.4em; font-weight: 600; color: var(--very-dark-blue); }
+h1 span { font-weight: 200; display: block;}
+
+/* Main */
+main{
+    margin-bottom: 50px;
+    max-width: 1200px;
+    display: grid;
+    gap: 5em;
+}
+
+/* Div - Header */
+main div.header {
+    margin: 0 auto;
+    max-width: 500px;
+}
+main div.header p {
+    margin-top: 1em;
+}
+
+/* Div Services */
+main div.services{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2em;
+    text-align: left;
+}
+
+main div.services > section {
+    padding: 2em;
+    background: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 1em 2em var(--grayish-blue);
+}
+main div.services > section > p { margin-top: 0.5em; }
+main div.services > section > img {
+    margin-top: 3em;
+    float: right;
+}
+main div.services > section::after{ content: ''; display: block; clear: both; }
+
+/* Main Div Service Section Individually */
+main div.services section#a {
+    border-top: 5px solid var(--cyan);
+}
+main div.services section#b {
+    border-top: 5px solid var(--red);
+}
+main div.services section#c {
+    border-top: 5px solid var(--orange);
+}
+main div.services section#d {
+    border-top: 5px solid var(--blue);
+}
+
+/* Footer */
+footer{
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 100%;
+    height: 50px;
+    padding: 10px;
+}
+footer p.attribution { font-size: 11px; text-align: center; }
+footer p.attribution a { color: hsl(228, 45%, 44%); }
+
+
+
+/*Desktop laptop Screens */
+@media screen and (min-width: 900px) {
+    main div.services {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas: ". two ."
+                            "one two four"
+                            "one three four"
+                            ". three .";
+    }
+    main div.services section#a {
+        grid-area: one;
+    }
+    main div.services section#b {
+        grid-area: two;
+    }
+    main div.services section#c {
+        grid-area: three;
+    }
+    main div.services section#d {
+        grid-area: four;
+    }
+}
+
+/* Smaller Screen */
+@media screen and (max-width: 700px) {
+    body{
+        padding: 50px 20px;
+    }
+    h1{ font-size: 1.9em; }
+    h2{ font-size: 1.3em; }
+}
+
+@media screen and (max-width: 550px) {
+    main div.services {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    h1{font-size: 1.7em;}
+    h2{ font-size: 1.2em; }
+}
